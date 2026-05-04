@@ -1,18 +1,20 @@
 <#
 ============================================================
-Title:      Windows Localisation Configuration
+Title:      Windows Localisation Remediation (Azure VM Fix)
 Author:     Matthew Maher
 Date:       03/05/2026
 
 Purpose:
-Configure Windows language, keyboard, and regional settings 
-to UK standards (en-GB) while allowing flexibility for 
-region-specific deployments.
+Remediate incorrect US-based localisation settings applied to Azure Virtual Machines during deployment.
+This script forces UK regional, language, and keyboard settings to ensure consistency across environments.
 
 Intended Use:
-Designed for Azure Virtual Machines deployed in US regions,
-where default localisation is often en-US and needs to be 
-standardised to UK settings.
+Designed for Azure VMs provisioned in US regions (or via images/templates) where default settings are:
+- en-US language
+- US keyboard layout
+- US regional formats
+
+This script acts as a post-deployment fix/patch to align systems with UK standards.
 
 Configuration Summary:
 - UI Language:        English (United Kingdom) [en-GB]
@@ -23,12 +25,10 @@ Configuration Summary:
 - Time Zone:          GMT Standard Time
 
 Notes:
-- A sign-out or restart is required for UI language changes 
-  to fully apply.
-- Script is safe for repeat execution (idempotent).
-- Compatible with Intune, Azure VM custom scripts, and 
-  manual execution.
-
+- Intended as a remediation script, not initial build config.
+- Safe for repeat execution (idempotent).
+- A sign-out or restart is required for full UI changes.
+- Can be deployed via Intune, Azure Custom Script Extension, or run manually post-build.
 ============================================================
 #>
 
